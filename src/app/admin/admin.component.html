@@ -1,0 +1,55 @@
+<mat-tab-group mat-align-tabs="center" animationDuration="0ms">
+    <mat-tab label="Dashboard">
+        <div class="dashboard">
+            <h2>Welcome to your Dashboard</h2>
+        </div> 
+    </mat-tab>
+
+
+    <!-- We can Add classes to all the icons if needed for styling -->
+    <mat-tab>
+<!-- This is for classes tab -->
+        <ng-template mat-tab-label>
+            <span>Classes</span> &nbsp; 
+            <mat-icon (click)="onAddClasses()">add</mat-icon>
+        </ng-template>
+
+<!-- The form will be hidden until the button is clicked. Eventually we want to hide this in a modal -->
+        <form [hidden] = "!classForm">
+                <label for="name">First Name:</label> &nbsp;
+                <input type="text" name="name">
+        </form>
+
+    </mat-tab>
+<!-- End of Classes Content -->
+
+<!-- Content For Teachers -->
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span>Instructors</span> &nbsp; 
+            <mat-icon (click)="onAddInstructors()">add</mat-icon>
+        </ng-template>
+    </mat-tab>
+<!-- End of Instructors Content -->
+
+<!-- Content for Students -->
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span>Students</span> &nbsp; 
+            <mat-icon (click)="onAddStudents()">add</mat-icon>
+        </ng-template>
+    </mat-tab>
+<!-- End of Instructors Content -->
+
+<!--Content for Schedules  -->
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span>Schedules</span> &nbsp; 
+            <mat-icon (click)="onAddSchedules()">add</mat-icon>
+        </ng-template>
+    </mat-tab>
+<!-- End of Content for Schedules -->
+
+
+</mat-tab-group>
+  
