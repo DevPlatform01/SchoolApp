@@ -1,0 +1,34 @@
+<mat-card>
+    <h3>Register an Organization</h3>
+    <form (submit)="onRegister(registerForm)" #registerForm="ngForm">
+        <h1>Organization Information</h1>
+
+        <mat-form-field>
+            <input matInput id="orgName" name="orgName" type="text" ngModel #orgName="ngModel" placeholder="Organization Name">
+        </mat-form-field>
+        
+
+        <h1>User Information</h1>
+        <mat-form-field>
+            <input type="text" matInput id="firstName" name="firstName" type="text" ngModel #firstName="ngModel" placeholder="First Name">
+        </mat-form-field>
+
+        <mat-form-field>
+        <input type="text" matInput id="lastName" name="lastName" type="text" ngModel #lastName="ngModel" placeholder="Last Name">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput id="email" name="email" type="text" ngModel #email="ngModel" placeholder="Email">
+            </mat-form-field>
+
+        <mat-form-field>
+            <input matInput id="username" name="username" type="text" ngModel #username="ngModel" placeholder="Username">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput id="pwd" name="pwd" type="text" ngModel #pwd="ngModel" placeholder="Password">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Register</button>
+    </form>
+</mat-card>

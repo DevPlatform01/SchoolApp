@@ -2,31 +2,47 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
-import { AppComponent } from './app.component';
-import { AdminComponent } from './admin/admin.component';
+import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
-import {MatCardModule} from '@angular/material/card';
-import {MatIconModule} from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AppsComponent } from './apps/apps.component';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { AdminComponent } from './admin/admin.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { OrgRegisterComponent } from './org/org-register/org-register.component';
+import { OrgLoginComponent } from './org/org-login/org-login.component';
 
 @NgModule({
   declarations: [
     AppComponent, 
-    AdminComponent, AppsComponent
+    AdminComponent, 
+    HeaderComponent, 
+    HomeComponent, 
+    OrgRegisterComponent, OrgLoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
     MatTabsModule,
+    MatInputModule,
     MatCardModule,
     MatIconModule, 
     MatNativeDateModule,
     ReactiveFormsModule,
+    AppRoutingModule,
+    MatToolbarModule,
+    MatButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
