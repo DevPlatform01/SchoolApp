@@ -11,12 +11,13 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AppsComponent } from './apps/apps.component';
+import {MatButtonModule} from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
     AppComponent, 
-    AdminComponent, AppsComponent
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +28,8 @@ import { AppsComponent } from './apps/apps.component';
     MatIconModule, 
     MatNativeDateModule,
     ReactiveFormsModule,
+    MatButtonModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

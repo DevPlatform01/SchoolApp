@@ -9,16 +9,26 @@
     <!-- We can Add classes to all the icons if needed for styling -->
     <mat-tab>
 <!-- This is for classes tab -->
-        <ng-template mat-tab-label>
+        <ng-template mat-tab-label class="classes-tab">
             <span>Classes</span> &nbsp; 
             <mat-icon (click)="onAddClasses()">add</mat-icon>
         </ng-template>
 
 <!-- The form will be hidden until the button is clicked. Eventually we want to hide this in a modal -->
-        <form [hidden] = "!classForm">
-                <label for="name">First Name:</label> &nbsp;
-                <input type="text" name="name">
-        </form>
+        <mat-card>
+            <!-- <form class="class-form" #postForm="ngForm">
+                <label for="Class name">Class Name:</label>
+                <input ngModel type="text" name="Class name">
+                <button mat-button color="primary" type="submit">Submit</button>
+            </form> -->
+ 
+            <form action="">
+                <input type="text" name="className" [(ngModel)]="enteredValue">
+                <button (click)="onSubmitClass()">Sumit</button>
+                <p> {{createdClass}} </p>
+            </form>
+    
+        </mat-card>
 
     </mat-tab>
 <!-- End of Classes Content -->

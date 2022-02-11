@@ -1,3 +1,4 @@
+import { ThisReceiver } from "@angular/compiler";
 import { Component, NgModule } from "@angular/core";
 
 @Component
@@ -13,6 +14,15 @@ import { Component, NgModule } from "@angular/core";
 
 export class AdminComponent
 {
+
+    enteredValue = '';
+    createdClass = '';
+    onSubmitClass()
+    {
+        this.createdClass=this.enteredValue;
+    }
+
+
     classForm = false;
     onAddClasses() //This method gets called in the plus button to add a class. 
     {
