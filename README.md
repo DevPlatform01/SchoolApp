@@ -1,2 +1,2 @@
 # SchoolApp
-School app created by Kwanele and Alex
+School app created by Kwanele and Alexander

@@ -10,9 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
-
-import {MatButtonModule} from '@angular/material/button';
-
+import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,7 +28,8 @@ import { OrgLoginComponent } from './org/org-login/org-login.component';
     AdminComponent,
     HeaderComponent, 
     HomeComponent, 
-    OrgRegisterComponent, OrgLoginComponent
+    OrgRegisterComponent, 
+    OrgLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +41,6 @@ import { OrgLoginComponent } from './org/org-login/org-login.component';
     MatIconModule, 
     MatNativeDateModule,
     ReactiveFormsModule,
-
-    MatButtonModule,
-
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
