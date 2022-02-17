@@ -29,14 +29,13 @@ app.use((req, res, next) => {
 // organization register route, gets values from form, then save to database as an organization object
 app.post("/register", (req, res, next) => {
     const org = new Organization({
-        title: req.body.orgName,
+        title: req.body.title,
         email: req.body.email,
         username: req.body.username,
         password: req.body.pwd,
         firstName: req.body.firstName,
         lastName: req.body.lastName
     });
-    console.log(org);
     org.save().then(createdOrg => {
         res.status(201).json({
             message: 'Organization added to database',
@@ -44,5 +43,23 @@ app.post("/register", (req, res, next) => {
         });
     });
 });
+
+// verify login
+app.post("/org-login", (req, res, next) => {
+    // get user information from login form
+    const user = {
+        username: req.body.username,
+        pwd: req.body.pwd
+    }
+
+    // see if user exists in database
+    Organization.findOne({ 'username': user.username }).then(selectedUser => {
+        if(selectedUser) {
+            res.status(200).json(selectedUser.title);
+        } else {
+            res.status(404).json({message: 'User not found!'});
+        }
+    });
+})
 
 module.exports = app;
