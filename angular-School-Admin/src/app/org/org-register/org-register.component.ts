@@ -44,8 +44,10 @@ export class OrgRegisterComponent implements OnInit {
     }
 
     // grab values from form and input into an object
+    // remove spaces from organization title with '-' for better routing
+    const orgTitle = this.form.value.title.replace(/\s/g , "-").toLowerCase();
     const org = {
-      title: this.form.value.title,
+      title: orgTitle,
       firstName: this.form.value.firstName,
       lastName: this.form.value.lastName,
       email: this.form.value.email,
