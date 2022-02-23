@@ -2,13 +2,13 @@
 const mongoose = require('mongoose');
 
 //create a class model with the fields that will go to a class.
-let Class = mongoose.model('Class', 
+var Classes = mongoose.model('Classes', 
 {
     className:{type: String},
     Description: {type: String},
     Duration:{type: String},
-    PassRate: {type: Number} 
+    PassRate: {type: String} 
 
 });
 
-module.exports = {Class};
+module.exports = {Classes};
