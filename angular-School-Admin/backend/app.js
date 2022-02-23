@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 //import the model for an organization
 const Organization = require('./models/organization.js');
+const Class = require('./models/class.js');
 
 const app = express();
 
@@ -42,6 +43,10 @@ app.post("/register", (req, res, next) => {
             orgId: createdOrg._id
         });
     });
+    const newClass = new Class({
+        className: req.body.title + '-class'
+    });
+    newClass.save().then(console.log('class created!'));
 });
 
 // verify login
