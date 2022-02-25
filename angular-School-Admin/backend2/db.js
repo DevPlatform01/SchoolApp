@@ -1,12 +1,12 @@
 
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://127.0.0.1:27017/AdminDB', (err)=>
+mongoose.connect('mongodb://localhost:27017/AdminDB', (err)=>
 {
     if(!err)
     console.log('Connection Succeeded!')
     else
-    console.log('Connection failure: ' + JSON.stringify(err, undefined, 2));
+    console.log('Connection failed: ' + JSON.stringify(err, undefined, 2));
 });
 
 //export mongoose
