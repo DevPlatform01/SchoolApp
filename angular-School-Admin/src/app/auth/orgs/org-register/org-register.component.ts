@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { OrgAuthService } from '../org-auth.service';
 
 @Component({
   selector: 'app-org-register',
@@ -12,7 +12,7 @@ export class OrgRegisterComponent implements OnInit {
   // initialize form group
   form: FormGroup;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(public authService: OrgAuthService, private router: Router) { }
 
   ngOnInit(): void {
     // setting up required field validators with form controls
@@ -29,13 +29,10 @@ export class OrgRegisterComponent implements OnInit {
       'email': new FormControl(null, {
         validators: [Validators.required]
       }),
-      'username': new FormControl(null, {
-        validators: [Validators.required]
-      }),
-      'pwd': new FormControl(null, {
+      'password': new FormControl(null, {
         validators: [Validators.required]
       })
-    })
+    });
   }
   onRegister() {
     // if any of the fields are invalid, exit function
@@ -43,23 +40,16 @@ export class OrgRegisterComponent implements OnInit {
       return;
     }
 
-    // grab values from form and input into an object
     // remove spaces from organization title with '-' for better routing
     const orgTitle = this.form.value.title.replace(/\s/g , "-").toLowerCase();
-    const org = {
-      title: orgTitle,
-      firstName: this.form.value.firstName,
-      lastName: this.form.value.lastName,
-      email: this.form.value.email,
-      username: this.form.value.username,
-      pwd: this.form.value.pwd
-    }
 
-    // send object to the server
-    this.http.post('http://localhost:3000/register', org)
-      .subscribe((responseData) => {
-        console.log(responseData);
-      });
+    // send object to the server using org-auth service
+    this.authService.createOrg(
+      orgTitle, 
+      this.form.value.firstName, 
+      this.form.value.lastName,
+      this.form.value.email, 
+      this.form.value.password);
 
     // reset form
     this.form.reset();

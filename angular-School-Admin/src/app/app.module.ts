@@ -18,8 +18,8 @@ import { AppComponent } from './app.component';
 import { AdminComponent } from './admin/admin.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { OrgRegisterComponent } from './org/org-register/org-register.component';
-import { OrgLoginComponent } from './org/org-login/org-login.component';
+import { OrgRegisterComponent } from './auth/orgs/org-register/org-register.component';
+import { OrgLoginComponent } from './auth/orgs/org-login/org-login.component';
 
 
 @NgModule({

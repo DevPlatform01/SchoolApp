@@ -2,9 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-//import the model for an organization
-const Organization = require('./models/organization.js');
-const Class = require('./models/class.js');
+//import routes
+const orgRoutes = require("./routes/org");
 
 const app = express();
 
@@ -27,44 +26,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// organization register route, gets values from form, then save to database as an organization object
-app.post("/register", (req, res, next) => {
-    const org = new Organization({
-        title: req.body.title,
-        email: req.body.email,
-        username: req.body.username,
-        password: req.body.pwd,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName
-    });
-    org.save().then(createdOrg => {
-        res.status(201).json({
-            message: 'Organization added to database',
-            orgId: createdOrg._id
-        });
-    });
-    const newClass = new Class({
-        className: req.body.title + '-class'
-    });
-    newClass.save().then(console.log('class created!'));
-});
-
-// verify login
-app.post("/org-login", (req, res, next) => {
-    // get user information from login form
-    const user = {
-        username: req.body.username,
-        pwd: req.body.pwd
-    }
-
-    // see if user exists in database
-    Organization.findOne({ 'username': user.username }).then(selectedUser => {
-        if(selectedUser) {
-            res.status(200).json(selectedUser.title);
-        } else {
-            res.status(404).json({message: 'User not found!'});
-        }
-    });
-})
+// routes for handling organization requests
+app.use("/api/organizations", orgRoutes);
 
 module.exports = app;

@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
 import { HomeComponent } from './home/home.component';
-import { OrgLoginComponent } from './org/org-login/org-login.component';
-import { OrgRegisterComponent } from './org/org-register/org-register.component';
+import { OrgLoginComponent } from './auth/orgs/org-login/org-login.component';
+import { OrgRegisterComponent } from './auth/orgs/org-register/org-register.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},

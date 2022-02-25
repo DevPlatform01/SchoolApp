@@ -20,18 +20,13 @@
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput type="text" placeholder="Email" formControlName="email">
+            <input matInput type="email" placeholder="Email" formControlName="email" email>
             <mat-error *ngIf="form.get('email').invalid">Please enter a valid email address.</mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-            <input matInput type="text" placeholder="Username" formControlName="username">
-            <mat-error *ngIf="form.get('username').invalid">Please enter a valid username.</mat-error>
         </mat-form-field>
         
         <mat-form-field>
-            <input matInput type="text" placeholder="Password" formControlName="pwd">
-            <mat-error *ngIf="form.get('pwd').invalid">Please enter a valid password.</mat-error>
+            <input matInput type="text" placeholder="Password" formControlName="password">
+            <mat-error *ngIf="form.get('password').invalid">Please enter a valid password.</mat-error>
         </mat-form-field>
 
         <button mat-raised-button color="primary" type="submit">Register</button>
