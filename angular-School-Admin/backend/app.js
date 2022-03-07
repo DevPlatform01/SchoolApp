@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 //import routes
 const orgRoutes = require("./routes/org");
+// const clsRoutes = require("./routes/cls");
 
 const app = express();
 
@@ -28,5 +29,6 @@ app.use((req, res, next) => {
 
 // routes for handling organization requests
 app.use("/api/organizations", orgRoutes);
+// app.use("/api/classes", clsRoutes);
 
 module.exports = app;

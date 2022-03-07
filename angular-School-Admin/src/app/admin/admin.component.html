@@ -11,7 +11,7 @@
 <!-- This is for classes tab -->
         <ng-template mat-tab-label class="classes-tab">
             <span>Classes</span> &nbsp; 
-            <mat-icon (click)="onAddClasses()">add</mat-icon>
+            <!-- <mat-icon (click)="onAddClasses()">add</mat-icon> -->
         </ng-template>
 
 <!-- The form will be hidden until the button is clicked. Eventually we want to hide this in a modal -->
@@ -22,12 +22,9 @@
                 <button mat-button color="primary" type="submit">Submit</button>
             </form> -->
  
-            <form action="">
-                <input type="text" name="className" [(ngModel)]="enteredValue">
-                <button (click)="onSubmitClass()">Sumit</button>
-                <p> {{createdClass}} </p>
-            </form>
-    
+           <label for="ClassName">Class Name: </label>
+            <input type="text" name="ClassName" id="">
+            <button type="submit">Submit</button>
         </mat-card>
 
     </mat-tab>
@@ -37,7 +34,7 @@
     <mat-tab>
         <ng-template mat-tab-label>
             <span>Instructors</span> &nbsp; 
-            <mat-icon (click)="onAddInstructors()">add</mat-icon>
+            <!-- <mat-icon (click)="onAddInstructors()">add</mat-icon> -->
         </ng-template>
     </mat-tab>
 <!-- End of Instructors Content -->
@@ -46,7 +43,7 @@
     <mat-tab>
         <ng-template mat-tab-label>
             <span>Students</span> &nbsp; 
-            <mat-icon (click)="onAddStudents()">add</mat-icon>
+            <!-- <mat-icon (click)="onAddStudents()">add</mat-icon> -->
         </ng-template>
     </mat-tab>
 <!-- End of Instructors Content -->
@@ -55,7 +52,7 @@
     <mat-tab>
         <ng-template mat-tab-label>
             <span>Schedules</span> &nbsp; 
-            <mat-icon (click)="onAddSchedules()">add</mat-icon>
+            <!-- <mat-icon (click)="onAddSchedules()">add</mat-icon> -->
         </ng-template>
     </mat-tab>
 <!-- End of Content for Schedules -->

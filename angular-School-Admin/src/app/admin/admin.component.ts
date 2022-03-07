@@ -1,5 +1,5 @@
 import { ThisReceiver } from "@angular/compiler";
-import { Component, NgModule } from "@angular/core";
+import { Component, NgModule, OnInit } from "@angular/core";
 
 @Component
 (
@@ -14,33 +14,43 @@ import { Component, NgModule } from "@angular/core";
 
 export class AdminComponent
 {
-
-    enteredValue = '';
-    createdClass = '';
-    onSubmitClass()
-    {
-        this.createdClass=this.enteredValue;
-    }
-
-
-    classForm = false;
-    onAddClasses() //This method gets called in the plus button to add a class. 
-    {
-       this.classForm = true; 
-    }
-
-    onAddInstructors()
-    {
-        alert('Button is clicked!')
-    }
-
-    onAddStudents()
-    {
-        alert('Button is clicked!')
-    }
-
-    onAddSchedules()
-    {
-        alert('Button is clicked!')
-    }
+    
 }
+// export class AdminComponent implements OnInit
+// {
+
+//     enteredValue = '';
+//     createdClass = '';
+//     onSubmitClass()
+//     {
+//         this.createdClass=this.enteredValue; //Displays the value of input on click submit
+//     }
+
+
+//     // classForm = '';
+//     onAddClasses() //This method gets called in the plus button to add a class. 
+//     {
+//       alert('button Clicked');
+//     //   return this.classForm = 'form';
+//     }
+
+//     onAddInstructors()
+//     {
+//         alert('Button is clicked!')
+//     }
+
+//     onAddStudents()
+//     {
+//         alert('Button is clicked!')
+//     }
+
+//     onAddSchedules()
+//     {
+//         alert('Button is clicked!')
+//     }
+
+//     ngOnInit()
+//     {
+        
+//     }
+// }

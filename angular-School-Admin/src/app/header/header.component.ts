@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     // listen for authentication changes. either true or false
     this.authListenerSub = this.authService.getAuthStatusListener().subscribe(isAuthenticated => {
       this.userIsAuthenticated = isAuthenticated;
+      
     });
   }
 
@@ -29,6 +30,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
       // destroy subscription when leaving page, to prevent memory leaks
       // only have to do this on non-angular subscriptions we set up
       this.authListenerSub.unsubscribe();
+
+    
   }
 
 }
