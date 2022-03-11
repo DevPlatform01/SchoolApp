@@ -20,6 +20,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { OrgRegisterComponent } from './auth/orgs/org-register/org-register.component';
 import { OrgLoginComponent } from './auth/orgs/org-login/org-login.component';
+import { OrgHomeComponent } from './orgs/org-home.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { OrgLoginComponent } from './auth/orgs/org-login/org-login.component';
     HeaderComponent, 
     HomeComponent, 
     OrgRegisterComponent, 
-    OrgLoginComponent
+    OrgLoginComponent,
+    OrgHomeComponent
   ],
   imports: [
     BrowserModule,

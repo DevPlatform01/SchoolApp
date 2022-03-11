@@ -11,15 +11,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
   userIsAuthenticated = false;
   // set up a subscription to listen to authentication status
   private authListenerSub: Subscription;
+  orgPath = '';
 
   constructor(private authService: OrgAuthService) { }
 
   ngOnInit(): void {
     // listen for authentication changes. either true or false
+    this.userIsAuthenticated = this.authService.getIsAuth();
     this.authListenerSub = this.authService.getAuthStatusListener().subscribe(isAuthenticated => {
       this.userIsAuthenticated = isAuthenticated;
       
     });
+    this.orgPath = "/" + this.authService.getPath();
   }
 
   onLogout() {

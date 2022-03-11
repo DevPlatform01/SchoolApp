@@ -11,6 +11,7 @@ router.post("/register", (req, res, next) => {
         .then(hash => {
             const org = new Organization({
                 title: req.body.title,
+                path: req.body.path,
                 email: req.body.email,
                 password: hash,
                 firstName: req.body.firstName,
@@ -28,8 +29,6 @@ router.post("/register", (req, res, next) => {
                 });
             });
         })
-    
-    
 });
 
 // verify login
@@ -55,7 +54,8 @@ router.post("/login", (req, res, next) => {
             const token = jwt.sign({email: fetchedOrg.email, userId: fetchedOrg._id}, 'secret_this_should_be_longer', {expiresIn: '1hr'});
             res.status(200).json({
                 token: token,
-                path: fetchedOrg.title
+                expiresIn: 3600,
+                path: fetchedOrg.path
             });
         })
         .catch(err => {

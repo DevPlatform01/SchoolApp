@@ -1,8 +1,8 @@
 
 <mat-toolbar color="primary">
-    <span>School App</span>
+    <span routerLink="">School App</span>
     <span class="example-spacer"></span>
-    <button *ngIf="userIsAuthenticated" [routerLink]="['/organization/testorg']" mat-button>Admin Dashboard</button>
+    <button *ngIf="userIsAuthenticated" [routerLink]="['/organization/' + orgPath]" mat-button>Organization</button>
     <button *ngIf="!userIsAuthenticated" [routerLink]="['/org-register']" mat-button>Register</button>
     <button *ngIf="!userIsAuthenticated" [routerLink]="['/org-login']" mat-button>Login</button>
     <button *ngIf="userIsAuthenticated" (click)="onLogout()" mat-button>Logout</button>

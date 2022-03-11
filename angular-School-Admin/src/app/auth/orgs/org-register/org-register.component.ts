@@ -41,11 +41,11 @@ export class OrgRegisterComponent implements OnInit {
     }
 
     // remove spaces from organization title with '-' for better routing
-    const orgTitle = this.form.value.title.replace(/\s/g , "-").toLowerCase();
+    
 
     // send object to the server using org-auth service
     this.authService.createOrg(
-      orgTitle, 
+      this.form.value.title,
       this.form.value.firstName, 
       this.form.value.lastName,
       this.form.value.email, 
