@@ -1,5 +1,7 @@
 import { ThisReceiver } from "@angular/compiler";
 import { Component, NgModule, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { OrgAuthService } from "../auth/orgs/org-auth.service";
 
 @Component
 (
@@ -12,45 +14,10 @@ import { Component, NgModule, OnInit } from "@angular/core";
 
 )
 
-export class AdminComponent
-{
-    
+export class AdminComponent implements OnInit{
+    constructor(public authService: OrgAuthService, private router: Router) {}
+    orgPath = '';
+    ngOnInit(): void {
+        this.orgPath = "/" + this.authService.getPath();
+    }
 }
-// export class AdminComponent implements OnInit
-// {
-
-//     enteredValue = '';
-//     createdClass = '';
-//     onSubmitClass()
-//     {
-//         this.createdClass=this.enteredValue; //Displays the value of input on click submit
-//     }
-
-
-//     // classForm = '';
-//     onAddClasses() //This method gets called in the plus button to add a class. 
-//     {
-//       alert('button Clicked');
-//     //   return this.classForm = 'form';
-//     }
-
-//     onAddInstructors()
-//     {
-//         alert('Button is clicked!')
-//     }
-
-//     onAddStudents()
-//     {
-//         alert('Button is clicked!')
-//     }
-
-//     onAddSchedules()
-//     {
-//         alert('Button is clicked!')
-//     }
-
-//     ngOnInit()
-//     {
-        
-//     }
-// }

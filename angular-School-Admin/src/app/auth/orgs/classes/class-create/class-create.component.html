@@ -1,0 +1,17 @@
+<mat-card>
+    <h3>Create a Class</h3>
+    <form (submit)="onCreate()" [formGroup]="form">
+
+        <mat-form-field>
+            <input matInput type="text" placeholder="Class Name" formControlName="title">
+            <mat-error *ngIf="form.get('title').invalid">Please enter a class name.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" matInput type="text" placeholder="Description" formControlName="description">
+            <mat-error *ngIf="form.get('description').invalid">Please enter a class description.</mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Create Class</button>
+    </form>
+</mat-card>

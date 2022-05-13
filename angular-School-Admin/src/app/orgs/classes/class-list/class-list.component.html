@@ -1,0 +1,14 @@
+<mat-accordion class="example-headers-align">
+    <mat-expansion-panel *ngFor="let course of courses">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{course.title}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>{{course.desc}}</p>
+        <!-- <mat-action-row *ngIf="userIsAuthenticated">
+            <a mat-button color="primary" [routerLink]="['/edit', post.id]">EDIT</a>
+            <button mat-button color="warn" (click)="onDelete(post.id)">DELETE</button>
+        </mat-action-row> -->
+    </mat-expansion-panel>
+</mat-accordion>

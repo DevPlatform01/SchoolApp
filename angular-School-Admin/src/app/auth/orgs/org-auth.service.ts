@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Subject } from "rxjs";
+import { Course } from "src/app/orgs/classes/course.model";
 
 @Injectable({
     providedIn: "root"
@@ -14,7 +15,10 @@ export class OrgAuthService {
     // setting up a listener to listen for any authentication changes such as logout/login
     // will return true or false
     private authStatusListener = new Subject<boolean>();
+    private pathListener = new Subject<String>();
     private tokenTimer: any;
+    private courses: Course[] = [];
+    private coursesUpdated = new Subject<Course[]>();
 
     constructor(private http: HttpClient, private router: Router) {}
 
@@ -39,6 +43,35 @@ export class OrgAuthService {
     // this function allows other places to listen to authentication status
     getAuthStatusListener() {
         return this.authStatusListener.asObservable();
+    }
+
+    getPathListener() {
+        return this.pathListener.asObservable();
+    }
+
+    createOrgClass(title: string, desc: string) {
+        const orgClass = {
+            title: title,
+            desc: desc,
+            path: this.getPath()
+        }
+        this.http.post('http://localhost:3000/api/organizations/createClass', orgClass)
+            .subscribe((responseData) => {
+                console.log(responseData);
+                this.coursesUpdated.next([...this.courses]);
+            });
+    }
+
+    getCourses() {
+        this.http.get<{message: string, courses: Course[]}>('http://localhost:3000/api/organizations/test')
+            .subscribe((courseData) => {
+                this.courses = courseData.courses;
+                this.coursesUpdated.next([...this.courses]);
+            });
+    }
+
+    getCourseUpdateListener() {
+        return this.coursesUpdated.asObservable();
     }
 
     createOrg(title: string, firstName: string, lastName: string, email: string, password: string) {
@@ -68,6 +101,7 @@ export class OrgAuthService {
                     this.setAuthTimer(expiresInDuration);
                     this.isAuthenticated = true;
                     this.authStatusListener.next(true);
+                    this.pathListener.next(response.path);
                     const now = new Date();
                     const expirationDate = new Date(now.getTime() + expiresInDuration * 1000);
                     this.saveAuthData(token, expirationDate, response.path);

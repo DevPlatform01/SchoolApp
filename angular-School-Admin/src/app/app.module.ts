@@ -12,6 +12,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +22,9 @@ import { HomeComponent } from './home/home.component';
 import { OrgRegisterComponent } from './auth/orgs/org-register/org-register.component';
 import { OrgLoginComponent } from './auth/orgs/org-login/org-login.component';
 import { OrgHomeComponent } from './orgs/org-home.component';
+import { UserRegisterComponent } from './auth/users/user-register/user-register.component';
+import { ClassCreateComponent } from './auth/orgs/classes/class-create/class-create.component';
+import { ClassListComponent } from './orgs/classes/class-list/class-list.component';
 
 
 @NgModule({
@@ -31,7 +35,10 @@ import { OrgHomeComponent } from './orgs/org-home.component';
     HomeComponent, 
     OrgRegisterComponent, 
     OrgLoginComponent,
-    OrgHomeComponent
+    OrgHomeComponent,
+    UserRegisterComponent,
+    ClassCreateComponent,
+    ClassListComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,8 @@ import { OrgHomeComponent } from './orgs/org-home.component';
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatExpansionModule
 
   ],
   providers: [],

@@ -3,8 +3,24 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const Organization = require("../models/organization");
+const OrgClass = require ("../models/class");
 
 const router = express.Router();
+
+router.get("/:path", (req, res, next) => {
+    OrgClass.find({org: req.params.path}, (error, data) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log(data);
+
+            res.status(200).json({
+                message: 'Courses fetched successfully!',
+                courses: data
+            });
+        }
+    });
+});
 
 router.post("/register", (req, res, next) => {
     bcrypt.hash(req.body.password, 10)
@@ -28,7 +44,26 @@ router.post("/register", (req, res, next) => {
                     error: err
                 });
             });
-        })
+        });
+});
+
+router.post("/createClass", (req, res, next) => {
+    const orgClass = new OrgClass({
+        title: req.body.title,
+        desc: req.body.desc,
+        org: req.body.path
+    })
+    orgClass.save().then(createdClass => {
+        res.status(201).json({
+            message: 'Class added to org database',
+            result: createdClass
+        });
+    })
+    .catch(err => {
+        res.status(500).json({
+            error: err
+        });
+    });
 });
 
 // verify login

@@ -21,10 +21,8 @@
                 <input ngModel type="text" name="Class name">
                 <button mat-button color="primary" type="submit">Submit</button>
             </form> -->
- 
-           <label for="ClassName">Class Name: </label>
-            <input type="text" name="ClassName" id="">
-            <button type="submit">Submit</button>
+            <button mat-raised-button color="primary" [routerLink]="['/organization' + orgPath + '/createClass']">New Class</button>
+            <app-class-list></app-class-list>
         </mat-card>
 
     </mat-tab>

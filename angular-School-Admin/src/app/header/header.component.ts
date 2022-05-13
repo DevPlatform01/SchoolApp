@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   userIsAuthenticated = false;
   // set up a subscription to listen to authentication status
   private authListenerSub: Subscription;
+  private pathListenerSub: Subscription;
   orgPath = '';
 
   constructor(private authService: OrgAuthService) { }
@@ -23,6 +24,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
       
     });
     this.orgPath = "/" + this.authService.getPath();
+    this.pathListenerSub = this.authService.getPathListener().subscribe(newPath => {
+      this.orgPath = "/" + newPath;
+    });
+    
   }
 
   onLogout() {
