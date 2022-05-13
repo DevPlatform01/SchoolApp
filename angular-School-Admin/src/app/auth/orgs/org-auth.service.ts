@@ -63,7 +63,7 @@ export class OrgAuthService {
     }
 
     getCourses() {
-        this.http.get<{message: string, courses: Course[]}>('http://localhost:3000/api/organizations/test')
+        this.http.get<{message: string, courses: Course[]}>('http://localhost:3000/api/organizations/' + localStorage.getItem('path'))
             .subscribe((courseData) => {
                 this.courses = courseData.courses;
                 this.coursesUpdated.next([...this.courses]);

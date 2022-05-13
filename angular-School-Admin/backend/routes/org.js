@@ -12,8 +12,6 @@ router.get("/:path", (req, res, next) => {
         if (error) {
             console.log(error);
         } else {
-            console.log(data);
-
             res.status(200).json({
                 message: 'Courses fetched successfully!',
                 courses: data
